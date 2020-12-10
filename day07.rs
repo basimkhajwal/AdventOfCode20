@@ -71,7 +71,7 @@ fn part2(rules: &Rules) -> usize {
 }
 
 fn main() {
-  let data = fs::read_to_string("input/input7.txt").unwrap();
+  let data = fs::read_to_string("input/input07.txt").unwrap();
   let rules: Rules = data.lines().map(parse_rules).collect();
 
   println!("Part 1: {}", part1(&rules));

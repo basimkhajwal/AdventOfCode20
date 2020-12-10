@@ -10,7 +10,7 @@ fn count_slope(xs: &Vec<Vec<char>>, r: usize, d: usize) -> usize {
 }
 
 fn main() -> io::Result<()> {
-  let data = fs::read_to_string("input/input3.txt")?;
+  let data = fs::read_to_string("input/input03.txt")?;
   let xs = data.split("\n").map(|x| x.chars().collect()).collect();
 
   println!("Part 1: {}", count_slope(&xs, 3, 1));

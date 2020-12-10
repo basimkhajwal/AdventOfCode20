@@ -51,7 +51,7 @@ fn part2(xs: &Vec<i64>, v: i64) -> i64 {
 
 fn main() {
   let xs: Vec<i64> =
-    fs::read_to_string("input/input9.txt")
+    fs::read_to_string("input/input09.txt")
       .unwrap()
       .lines()
       .map(|x| x.parse().unwrap())

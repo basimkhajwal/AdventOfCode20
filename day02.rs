@@ -23,7 +23,7 @@ fn valid_p2(pwd: &str) -> bool {
 }
 
 fn main() -> io::Result<()> {
-  let data = fs::read_to_string("input/input2.txt")?;
+  let data = fs::read_to_string("input/input02.txt")?;
   let xs = data.split("\n").collect::<Vec<_>>();
   let ans1 = xs.iter().filter(|&s| valid_p1(s)).count();
   let ans2 = xs.iter().filter(|&s| valid_p2(s)).count();

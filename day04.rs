@@ -48,7 +48,7 @@ fn check_data(pp: &Passport) -> bool {
 }
 
 fn main() {
-  let data = fs::read_to_string("input/input4.txt").unwrap();
+  let data = fs::read_to_string("input/input04.txt").unwrap();
   //let xs: Vec<_> = data.split("\n\n").map(|x| parse_passport(x)).collect();
   let xs: Vec<_> = data.split("\n\n").map(parse_passport).collect();
 

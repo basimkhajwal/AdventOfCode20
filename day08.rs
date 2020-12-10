@@ -73,7 +73,7 @@ fn part2(ops: &mut Vec<Op>) -> i32 {
 }
 
 fn main() {
-  let input = fs::read_to_string("input/input8.txt").unwrap();
+  let input = fs::read_to_string("input/input08.txt").unwrap();
   let mut ops: Vec<Op> = input.lines().map(parse_op).collect();
 
   println!("Part 1: {}", part1(&ops));

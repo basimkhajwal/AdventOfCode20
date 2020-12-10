@@ -4,7 +4,7 @@ use std::io;
 fn main() -> io::Result<()> {
 
   let mut xs: Vec<i32> =
-    fs::read_to_string("input/input1.txt")?
+    fs::read_to_string("input/input01.txt")?
       .split_whitespace()
       .map(|s: &str| s.parse().unwrap())
       .collect();

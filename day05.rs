@@ -14,7 +14,7 @@ fn sum_to(n: i32) -> i32 {
 }
 
 fn main() {
-  let data = fs::read_to_string("input/input5.txt").unwrap();
+  let data = fs::read_to_string("input/input05.txt").unwrap();
   let seats: Vec<i32> = data.lines().map(get_seat_id).collect();
 
   let min_seat = seats.iter().min().unwrap();

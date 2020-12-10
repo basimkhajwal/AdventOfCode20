@@ -20,7 +20,7 @@ fn group_and(s: &str) -> usize {
 }
 
 fn main() {
-  let data = fs::read_to_string("input/input6.txt").unwrap();
+  let data = fs::read_to_string("input/input06.txt").unwrap();
   let groups: Vec<&str> = data.split("\n\n").collect();
 
   println!("Part 1: {}", groups.iter().copied().map(group_or).sum::<usize>());

@@ -75,35 +75,36 @@ fn part1(tokens: &Vec<Token>) -> Int {
 }
 
 fn part2(tokens: &Vec<Token>) -> Int {
-  let mut acc = vec![];
-  let mut ops = vec![];
 
-  for t in tokens.iter() {
+  // Neat trick:
+  //  Represent depth of stack as pair of numbers (a,m)
+  //  where value is a * m
+  let mut stack = vec![0, 1];
+  let mut i = 0;
+
+  for t in tokens {
     match t {
-      Token::Num(v) => {
-        acc.push(*v)
-      },
-      Token::Op(o) => {
-        if let Some(p) = ops.last() {
-          if *p == Op::Add || *o == Op::Mul {
-            let v = apply_op(ops.pop().unwrap(), acc.pop().unwrap(), acc.pop().unwrap());
-            acc.push(v);
-          }
-        }
-        ops.push(*o);
+      Token::Num(v) => { stack[i] += *v; },
+      Token::Op(Op::Add) => { },
+      Token::Op(Op::Mul) => {
+        stack[i+1] *= stack[i];
+        stack[i] = 0;
       },
       Token::BOpen => {
-        acc.push(0);
-        ops.push(Op::Add);
+        stack.push(0);
+        stack.push(1);
+        i += 2;
       },
       Token::BClose => {
-        let i = acc.len()-2;
-        acc[i] = apply_op(ops.pop().unwrap(), acc[i], acc.pop().unwrap());
+        let m = stack.pop().unwrap();
+        let a = stack.pop().unwrap();
+        i -= 2;
+        stack[i] += a * m;
       },
     }
   }
 
-  acc.pop().unwrap()
+  stack[0] * stack[1]
 }
 
 fn main() {
@@ -111,4 +112,5 @@ fn main() {
   let ts: Vec<Vec<Token>> = data.lines().map(tokens).collect();
 
   println!("Part 1: {}", ts.iter().map(part1).sum::<Int>());
+  println!("Part 2: {}", ts.iter().map(part2).sum::<Int>());
 }
